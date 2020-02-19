@@ -11,6 +11,8 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 EXIT_CODE=$?
 
-< /tmp/phpcs_result_checkstyle.xml | reviewdog -f=checkstyle -name="phpcs" -reporter="${INPUT_REPORTER:-github-pr-check}"
+cat /tmp/phpcs_result_checkstyle.xml
+
+reviewdog -f=checkstyle -name="phpcs" -reporter="${INPUT_REPORTER:-github-pr-check}" < /tmp/phpcs_result_checkstyle.xml
 
 exit $EXIT_CODE
