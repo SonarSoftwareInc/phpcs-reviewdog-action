@@ -22,7 +22,7 @@ RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/in
 RUN wget -P /usr/local/bin -q https://github.com/squizlabs/PHP_CodeSniffer/releases/download/${PHPCS_VERSION}/phpcs.phar \
  && chmod +x /usr/local/bin/phpcs.phar
 
-RUN phpcs.phar --config-set installed_paths /tmp/vendor
+RUN phpcs.phar --config-set installed_paths /tmp/vendor/wp-coding-standards/wpcs
 
 RUN apk --no-cache add git \
  && rm -rf /var/lib/apt/lists/*
