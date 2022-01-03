@@ -1,6 +1,9 @@
 FROM composer:2.0 as vendor
-COPY composer.json /composer.json
-COPY composer.lock /composer.lock
+
+WORKDIR /app
+
+COPY composer.json composer.json
+COPY composer.lock composer.lock
 
 # Install composer packages
 RUN COMPOSER_CACHE_DIR=/dev/null composer install --no-interaction --no-scripts --classmap-authoritative
@@ -10,7 +13,7 @@ FROM php:7.4-alpine
 ARG REVIEWDOG_VERSION=v0.13.0
 ARG PHPCS_VERSION=3.6.1
 
-COPY --from=vendor vendor/ ./vendor/
+COPY --from=vendor app/vendor/ /tmp/vendor/
 
 # Install reviewdog
 RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
