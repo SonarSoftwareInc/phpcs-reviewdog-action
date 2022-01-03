@@ -1,0 +1,10 @@
+{
+    "name": "sonarsoftwareinc/phpcs-reviewdog-action",
+    "type": "project",
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^2.3"
+    },
+    "license": "propietary",
+    "minimum-stability": "dev",
+    "require": {}
+}
