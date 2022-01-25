@@ -14,6 +14,6 @@ EXIT_CODE=$?
 
 cat /tmp/phpcs_result_checkstyle.xml
 
-< /tmp/phpcs_result_checkstyle.xml | reviewdog -f=checkstyle -name="phpcs" -reporter="${INPUT_REPORTER:-github-pr-check}"
+< /tmp/phpcs_result_checkstyle.xml reviewdog -f=checkstyle -name="phpcs" -reporter="${INPUT_REPORTER:-github-pr-check}"
 
 exit $EXIT_CODE
