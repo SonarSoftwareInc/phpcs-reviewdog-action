@@ -1,4 +1,4 @@
-FROM php:7.4-alpine
+FROM php:8.1-alpine
 
 ARG REVIEWDOG_VERSION=v0.13.0
 ARG PHPCS_VERSION=3.6.1
