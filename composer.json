@@ -2,9 +2,14 @@
     "name": "sonarsoftwareinc/phpcs-reviewdog-action",
     "type": "project",
     "require-dev": {
-        "wp-coding-standards/wpcs": "^2.3"
+        "wp-coding-standards/wpcs": "^2.3",
+        "slevomat/coding-standard": "^8.0"
     },
     "license": "propietary",
     "minimum-stability": "dev",
-    "require": {}
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
 }
