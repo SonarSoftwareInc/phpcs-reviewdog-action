@@ -11,7 +11,7 @@ RUN COMPOSER_CACHE_DIR=/dev/null composer install --no-interaction --no-scripts 
 FROM php:8.1-alpine
 
 ARG REVIEWDOG_VERSION=v0.14.1
-ARG PHPCS_VERSION=3.6.2
+ARG PHPCS_VERSION=3.7.1
 
 COPY --from=vendor app/vendor/ /tmp/vendor/
 
