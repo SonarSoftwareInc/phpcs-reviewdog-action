@@ -1,4 +1,4 @@
-FROM composer:2.0 as vendor
+FROM composer:2.10 as vendor
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ COPY composer.lock composer.lock
 # Install composer packages
 RUN COMPOSER_CACHE_DIR=/dev/null composer install --no-interaction --no-scripts --classmap-authoritative
 
-FROM php:8.1-alpine
+FROM php:8.2-alpine
 
 ARG REVIEWDOG_VERSION=v0.14.1
 ARG PHPCS_VERSION=3.13.6
