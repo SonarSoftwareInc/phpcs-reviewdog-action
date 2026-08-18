@@ -11,7 +11,7 @@ RUN COMPOSER_CACHE_DIR=/dev/null composer install --no-interaction --no-scripts 
 FROM php:8.1-alpine
 
 ARG REVIEWDOG_VERSION=v0.14.1
-ARG PHPCS_VERSION=3.7.1
+ARG PHPCS_VERSION=3.13.6
 
 COPY --from=vendor app/vendor/ /tmp/vendor/
 
@@ -19,7 +19,7 @@ COPY --from=vendor app/vendor/ /tmp/vendor/
 RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
 
 # Install phpcs
-RUN wget -P /usr/local/bin -q https://github.com/squizlabs/PHP_CodeSniffer/releases/download/${PHPCS_VERSION}/phpcs.phar \
+RUN wget -P /usr/local/bin -q https://github.com/PHPCSStandards/PHP_CodeSniffer/releases/download/${PHPCS_VERSION}/phpcs.phar \
  && chmod +x /usr/local/bin/phpcs.phar
 
 # Unfortunately this is overridden by phpcs.xml
